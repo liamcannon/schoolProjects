@@ -1,0 +1,188 @@
+body {
+    background-color: orangered;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.holder {
+    padding: 50px;
+    margin: 0 auto;
+}
+
+#navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navbar {
+    float: left;
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.navbar a:hover {
+    background-color: #111;
+  }
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 50px;
+}
+
+#pokemonList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 20px;
+    padding-inline-start: 0;
+}
+
+#itemList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 10px;
+    padding-inline-start: 0;
+}
+
+#berriesList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 10px;
+    padding-inline-start: 0;
+}
+
+.pokeCard {
+    list-style: none;
+    padding: 50px;
+    background-color: white;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.itemCard {
+    list-style: none;
+    padding: 50px;
+    background-color: white;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.berryCard {
+    list-style: none;
+    padding: 50px;
+    background-color: white;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.pokemonName {
+    color: black;
+    text-transform: capitalize;
+    margin-bottom: 0px;
+    font-size: 30px;
+}
+
+.itemName {
+    color: black;
+    text-transform: capitalize;
+    margin-bottom: 0px;
+    font-size: 20px;
+}
+
+.berryName {
+    color: black;
+    text-transform: capitalize;
+    margin-bottom: 0px;
+    font-size: 20px;
+}
+
+.pokeCardImage {
+    height: 200px;
+}
+
+.itemCardImage {
+    height: 150px;
+}
+
+.fire {
+    color: red;
+}
+
+.water {
+    color: skyblue;
+}
+
+.grass {
+    color: greenyellow;
+}
+
+.poison {
+    color: purple;
+}
+
+.electric {
+    color: gold;
+}
+
+.dragon {
+    color: darkblue;
+}
+
+.fairy {
+    color: pink;
+}
+
+.ice {
+    color: lightskyblue;
+}
+
+.rock {
+    color: brown;
+}
+
+.ground {
+    color: burlywood;
+}
+
+.steel {
+    color: grey;
+}
+
+.psychic {
+    color: darkorchid;
+}
+
+.dark {
+    color: darkslategrey;
+}
+
+.normal {
+    color: lightgray;
+}
+
+.fighting {
+    color: lightsalmon;
+}
+
+.bug {
+    color: lightgreen;
+}
+
+.ghost {
+    color: darkviolet;
+}
+
+.flying {
+    color: lightblue;
+}
+
+/* i used https://css-tricks.com/snippets/css/complete-guide-grid/ and 
+https://www.youtube.com/watch?v=T-VQUKeSU1w to help me understand the css grids
+I used the same ornagered color because it looks soooo goood sorry for copy sir
+*/

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<!-- CSI 120, Week 6, Lab 5
+    For this lab you are asked to fill in the missing JavaScript
+    code throughout this document as indicated in comments. In each
+    problem you only need to ultimately set a predefined variable to
+    the right value.
+-->
+<html>
+    <head>
+        <title>CSI 120 Lab 5</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- Temperature Converter -->
+        
+        <script>
+            function getData(){
+                const id = document.getElementById('personId').value;
+                const base = 'https://swapi.co/api/';
+                getPerson(base + "people/" + id + "/");
+                getPlanet(base + "planets/5");
+                //getPerson(`${base}people/2`);
+            }
+
+            const getPerson = (url) => {
+                fetch(url)
+                    .then((responce) => {
+                        return responce.json();
+                    })
+                    .then((data) => {
+                        console.log(data);
+                        let content = document.getElementById('content');
+                        console.log(content);
+                        content.innerHTML = `<h1>Name</h1><span>${data.name}</span>`;
+                    })
+            };
+            const getPlanet = (url) => {
+
+            }
+        </script>
+        
+        <h3>Generate some data</h3>
+        <button onclick="getData()">Get Data</button>
+        <input id="personId" type="number"/>
+        
+        <div id="content"></div>
+
+        <hr>
+        
+        <!-- Number Guessing Game -->
+        
+        <script>
+            // Random number between 0 and 99
+            let answer = Math.floor(Math.random() * (100));
+            function guess() {
+                let userGuess = Number(document.getElementById("guessNum").value);
+                if (isNaN(userGuess)) {
+                    window.alert("Not a number!");
+                    return;
+                }
+                let report = "Nothing Yet";
+                
+                if(answer < userGuess){
+                    report = "Guess lower";
+                }if(answer > userGuess){
+                    report = "Guess higher";
+                }else{
+                    report = "Correct";
+                }
+                // YOU FILL IN HERE
+                // Report back to the user by filling in whether
+                // the guess is too high, too low, or correct
+                // in the variable report.
+                
+                document.getElementById("guessResponse").innerHTML = report;
+            }
+        </script>
+        
+        <h3>Number Guessing Game</h3>
+        <label for="guessNum">Your Guess</label>
+        <input type="number" id="guessNum">
+        <div><span id="guessResponse"></span></div>
+        <button onclick="guess()">Guess</button>
+        <hr>
+        
+        <!-- Calculating Pi Using Newton's Method -->
+        
+        <script>
+            function calcPi() {
+                let numIterations = Number(document.getElementById("numIterations").value);
+                if (isNaN(numIterations)) {
+                    window.alert("Not a number!");
+                    return;
+                }
+                let pi = 0;
+                
+                // YOU FILL IN HERE
+                // Use Newton's method numIterations times to
+                // calculate pi. Store it in the variable pi.
+                // Find the sum of the infinite series 
+                // 1/1 - 1/3 + 1/5 - 1/7 + 1/9 ... == pi/4
+                
+                let series = 1.0;
+                let denominator = 3.0;
+                let negate = -1;
+                
+                // Continue here... use a for-loop that iterates numIterations times and keep adding
+                // values into series based on the formula,
+                // flip negate, and increase the denominator by 2 with each iteration.
+                
+                // Remember to multiply your answer by 4 to get pi.
+                
+                document.getElementById("pi").innerHTML = pi;
+            }
+        </script>
+        
+        <h3>Calculating Pi Using Newton's Method</h3>
+        <label for="numIterations">Number of Iterations</label>
+        <input type="number" id="numIterations">
+        <div><span id="pi"></span></div>
+        <button onclick="calcPi()">Calculate</button>
+        <hr>
+        
+        <!-- Multiplication Table -->
+        
+        <script>
+            function generateMultiplicationTable() {
+                let tableMax = Number(document.getElementById("tableMax").value);
+                if (isNaN(tableMax)) {
+                    window.alert("Not a number!");
+                    return;
+                }
+
+               let tableHTML = "<table>";
+
+               for(let i = 1; i <= tableMax; i++){
+                   tableHTML += `<tr></tr>`;
+                   for(let j = 1; j<= tableMax; j++){
+                       tableHTML += `<td>${i * j}</td>`;
+                   }
+               }
+                
+                // YOU FILL IN HERE
+                // Use an outter loop and an inner loop.
+                // add a row by using tableHTML += "<tr>";
+                // and a cell using tableHTML += "<td>";
+                // remember to also close all of your tags
+
+
+                                
+                tableHTML += "</table>";
+                
+                document.getElementById("multiplicationTable").innerHTML = tableHTML;
+            }
+        </script>
+        
+        <h3>Multiplication Table</h3>
+        <label for="tableMax">Table Up To</label>
+        <input type="number" id="tableMax">
+        <div id="multiplicationTable"></div>
+        <button onclick="generateMultiplicationTable()">Generate Table</button>
+        <hr>
+        
+    </body>
+</html>

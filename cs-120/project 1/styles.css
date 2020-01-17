@@ -1,0 +1,43 @@
+@media screen and (max-width: 600px){
+    .navbar a{
+        font-size: 15px;
+    }
+}
+.lotaFish{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 10px;
+}
+
+.fishBackground{
+    background-image: url("http://press.basspro.com/www/pages/E/C/B/D/1/1/D/A/F/0/images/ab42899bb0a0137.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+
+    height: auto;
+    width: auto\9;
+}
+.cursedImage{
+    background-image: url("https://i.redd.it/ro32nat4t2q21.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: auto;
+    width: auto/9;
+}
+.welcome{
+    text-align: center;
+    color: whitesmoke;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+}
+
+.instrumentText{
+    color: black;
+    font-family: "Times new Roman", Times, Serif;
+}
+table, th, td {
+    border: 1px solid black;
+  }

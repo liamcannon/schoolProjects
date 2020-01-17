@@ -1,0 +1,18 @@
+.border{
+    border: 1px solid black;
+}
+.elementGas{
+    font-size: 15px;
+    background-color: grey;
+    color:white;
+}
+.elementAM{
+    font-size: 15px;
+    background-color: orangered;
+    color:white;
+}
+.elementAEM{
+    font-size: 15px;
+    background-color:brown;
+    color:white;
+}

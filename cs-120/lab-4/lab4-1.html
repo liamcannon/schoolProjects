@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<!--For this lab you are asked to fill in the missing JavaScript
+    code throughout this document as indicated in the comments.
+    
+    This lab is about using the JavaScript function document.getElementById().
+    This function grabs an HTML element by its id (the one you specify using
+    an attribute (ex. <p id="my_paragraph">Hello!</p>) and returns it.
+    You can use the variable you set using the function to modify the HTML element.
+    example:
+    let p = document.getElementById("my_paragraph");
+    p.style.color = "blue";
+    
+    You can use the innerHTML property to completely replace the contents of an element.
+    example:
+    p.innerHTML = "<a href=\"http://www.nytimes.com\">Read the news!</a>";
+    
+    For further reading checkout:
+    https://developer.mozilla.org/en/docs/Web/API/Document/getElementById
+    and
+    http://www.w3schools.com/jsref/met_document_getelementbyid.asp
+    and for what you can change on a returned element
+    http://www.w3schools.com/jsref/dom_obj_all.asp
+    On the left hand side of that page you will also find a section called "HTML Objects"
+    it lists specific attributes you can change on every HTML element.
+-->
+<html>
+    <head>
+        <title>CSI 120 Lab 4</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- Swapper -->
+        
+        <script>
+            function swapContents() {
+                let p1 = document.getElementById("para1");
+                let p2 = document.getElementById("para2");
+                
+                if(p2.nextSibling == p1) {
+                    p1.parentNode.insertBefore(p2, p1.nextSibling);
+                } else {
+                    p1.parentNode.insertBefore(p2, p1);
+                }
+               // let prev1 = document.getElementById("para1");
+                //let prev2 = document.getElementById("para2");
+
+                //let prev1 = p1.previousSibling;
+                //let pre2 = p2.previousSibling;
+
+                //prev1.after(p2);
+               // prev2.after(p1);
+            }
+        </script>
+        
+        <h3>Swapper</h3>
+        <p id="para1">Hello!</p>
+        <p id="para2">Goodbye!</p>
+        <button onclick="swapContents()">Swap</button>
+        <hr>
+        
+        <!-- Placing Emphasis -->
+        
+        <script>
+            function emphasize() {               
+                const span = document.getElementById('placeForEmphasis');
+                const mark = document.createElement('mark');
+                mark.textContent = span.textContent;
+                span.textContent = "";
+                span.appendChild(mark);
+            }
+        </script>
+        
+        <h3>Placing Emhpasis</h3>
+        <p>Fall just started but I am already over the <span id="placeForEmphasis">bitter</span> cold.</p>
+        <button onclick="emphasize()">Emphasize</button>
+        <hr>
+        
+        <!-- Tiny Calculator -->
+        
+        <script>
+            function calculate() {
+                let operand1 = Number(document.getElementById("operand1").value);
+                if (isNaN(operand1)) {
+                    window.alert("Operand 1 not a number!");
+                    return;
+                }
+
+                let operand2 = Number(document.getElementById("operand2").value);
+                if(isNaN(operand2)) {
+                    window.alert("Operand 2 not a number");
+                }
+               
+                let opValue = document.getElementById("operation").value;
+
+                let answerSpan = document.getElementById(`answer`);
+
+                let result;
+                if(opValue == "addition") {
+                    result = operand1 + operand2;
+                }else if(opValue == "subtraction") {
+                    result = operand1-operand2;
+                }else if(opValue == "multiplication") {
+                    result = operand1 * operand2;
+                }else if(opValue == "division") {
+                    result = operand1/operand2;
+                }
+
+                answerSpan.innerText = `${result}`;
+            }
+                
+                // YOU FILL IN HERE
+                // You've been provided operand1. You must fetch operand2
+                // You must fetch the operation (addition, subtraction, etc.).
+                // You can use the value property on the element "operation"
+                // to get the operation as a String. You should put the final
+                // result into the innerHTML of the element "answer".
+        </script>
+        
+        <h3>Tiny Calculator</h3>
+        <input type="number" id="operand1">
+        <select id="operation">
+          <option value="addition">+</option>
+          <option value="subtraction">-</option>
+          <option value="multiplication">*</option>
+          <option value="division">/</option>
+        </select>
+        <input type="number" id="operand2">
+        =&nbsp;<span id="answer"></span>
+        <button onclick="calculate()">Calculate</button>
+        <hr>
+        
+        <!-- Powers of 2 Table -->
+        
+        <script>
+            function generatePowersTable() {
+                // YOU FILL IN HERE
+                // This problem is similar to the multiplication table problem
+                // from lab 5. This time, though, you are being asked to write
+                // almost all of the HTML and the JavaScript yourself. Fill in
+                // this function so that it creates a table filled with the powers
+                // of 2 from 1 to 16. So, your table should have one column
+                // that says 2^1, 2^2, 2^3, etc. and another that says 
+                // 2, 4, 8, etc.
+
+                let tableMax = 16;
+                let tableHTML = "<table>";
+                
+                for(let i = 1; i <= 16; i++){
+                    tableHTML +=`<tr></tr>`;
+                    tableHTML += `<td>2^${i}</td>`;
+                    tableHTML += `<td>${Math.pow(2, i)}</td>`;
+                }
+
+                tableHTML += "</table>";
+
+                document.getElementById("powerTable").innerHTML = tableHTML;
+            }
+        </script>
+        
+        <h3>Powers Table</h3>
+        <!-- YOU FILL IN HERE 
+            Put a table element that will be filled with rows and cells
+            by your JavaScript code.-->
+            <div id = powerTable></div>
+
+        <button onclick="generatePowersTable()">Generate Table</button>
+        <hr>
+        
+        <!-- Magic Eight Ball -->
+        
+        <script>
+            window.onload = function() {
+                let eightball = document.getElementById("eightball"); 
+                eightball.onclick = function () {
+                    // YOU FILL IN HERE
+                    // When the eight ball is clicked, magic happens.
+                    // Make it answer your question with yes, no, and any other
+                    // answer you can think of. Make sure the answer is randomly selected.
+                    // If you want to go all out, show the answer in the form of an image.
+                    let answer = Math.floor(Math.random() * (6));
+                    console.log(answer);
+                    switch(answer) {
+                        case 0:
+                            document.getElementById("answerText").innerHTML = "Probably";
+                            break;
+                        case 1:
+                            document.getElementById("answerText").innerHTML = "Never";
+                            break;
+                        case 2: 
+                            document.getElementById("answerText").innerHTML = "There's a chance";
+                            break;
+                        case 3:
+                            document.getElementById("answerText").innerHTML = "Not Likely";
+                            break;
+                        case 4:
+                            document.getElementById("answerText").innerHTML = "Absolutely";
+                            break;
+                        case 5:
+                            document.getElementById("answerText").innerHTML = "No";
+                            break;
+                        default:
+                            document.getElementById("answerText").innerHTML = "It fuckin broke";
+                    }
+                }
+            }
+        </script>
+        
+        <h3>Magic Eight Ball</h3>
+        <img id="eightball" src="https://cdn4.iconfinder.com/data/icons/sports-recreation/128/billiards-128.png" alt="Eight Ball">
+        <!-- YOU FILL IN HERE 
+            Put an element here for your magic eight ball answers.-->
+            <div id = "answerText"></div>
+        <hr>
+        
+    </body>
+</html>
