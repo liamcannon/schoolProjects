@@ -30,15 +30,17 @@ public:
 	//default constructor - not actually used but should be implemented anyway
 	Book();
 	//constructor
-	Book( const string& name, Type type, int pages, float ounces );
+	Book( const string& name, Type type, int pages, float ounces, const string& checkFileName );
 	//destructor
 	~Book(){};
    
 	string formatReportLine();  //return a string with all the info for the book
 	float getWeightLbs();  //calculate and return the weight of the book in lbs
 	string getTypeName();  //return the string which correlates with the book type
-   
+    void addReviews(const string& reviewFile); //reads the passed in reviews file and adds review data to the book 
+	float calculateAverageReview(); //calculate the average of the reviews
 	//accessors
+	int getMostFrequentReview(); //get the review (number of stars) with the highest count 
 	string getName(){ return bName; };
 	Type getType(){ return bType; };
 	int getPages(){ return bPages; };
@@ -49,6 +51,8 @@ private:
 	Type bType;  //the type of book (Type is an enumerated type)
 	int bPages;  //how many pages the book contains
 	float bOunces;  //how much the book weighs in ounces
+	int bReviews[5];
+	void getReviews(int reviewsArray[], int size);  //fill reviewsArray with reviews 
 };
 
 

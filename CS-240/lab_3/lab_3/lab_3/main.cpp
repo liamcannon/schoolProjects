@@ -28,15 +28,17 @@ int main()
 			int type;
 			int pages;
 			float ounces;
-			getline( input, name );
-			input >> type >> pages >> ounces;
+			string checkFileName;
+			getline(input, name);
+			input >> type >> pages >> ounces >> checkFileName;
 			input.ignore(INT_MAX, '\n');  //ignore the newline char at the end of the line
          
 			//create Book object here!
-			Book book; 
+			Book book(name, Type(type), pages, ounces, checkFileName);
          
 			//write out report line for movie here!
 			
+			cout << book.formatReportLine() << endl;
          
 		}
 	}
