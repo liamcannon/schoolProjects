@@ -8,7 +8,7 @@ const int MAX_BEDROOMS = 4;
 const int MAX_KITCHENS = 1;
 const int MAX_BATHROOMS = 2;
 const int MAX_LIVINGROOMS = 5;
-const int MAX_ROOMS = 13;
+const int MAX_ROOMS = 12;
 
 //a house with less than the minimum number of rooms of each type will always be worth $0
 const int MIN_BEDROOMS = 1;

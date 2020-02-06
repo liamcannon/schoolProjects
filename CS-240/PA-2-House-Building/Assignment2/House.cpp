@@ -54,7 +54,7 @@ bool House::addRoom(const Room &theRoom)
 	default:
 		return false;
 	}
-	if (theRoom.getHeight() < MIN_HEIGHT || theRoom.getSquareFootage() < MIN_AREA || countOfType > maxCount)
+	if (theRoom.getHeight() < MIN_HEIGHT || theRoom.getSquareFootage() < MIN_AREA || countOfType >= maxCount)
 	{
 		return false;
 	}
@@ -131,8 +131,8 @@ bool House::isValid()
 {
 	int kitchenCount = 0;
 	int bathroomCount = 0;
-	int livingRoomCount = 0;
-	int bedRoomCount = 0;
+	int livingroomCount = 0;
+	int bedroomCount = 0;
 
 	for (int i = 0; i < roomCount; i++)
 	{
@@ -145,16 +145,16 @@ bool House::isValid()
 			bathroomCount++;
 			break;
 		case LIVINGROOM:
-			livingRoomCount++;
+			livingroomCount++;
 			break;
 		case BEDROOM:
-			bedRoomCount++;
+			bedroomCount++;
 			break;
 		default:
 			return false;
 		}
 	}
-	if (KITCHEN > MAX_KITCHENS || BATHROOM > MAX_BATHROOMS || LIVINGROOM > MAX_LIVINGROOMS || BEDROOM > MAX_BEDROOMS)
+	if (kitchenCount > MAX_KITCHENS || bathroomCount > MAX_BATHROOMS || livingroomCount > MAX_LIVINGROOMS || bedroomCount > MAX_BEDROOMS)
 	{
 		return false;
 	}
