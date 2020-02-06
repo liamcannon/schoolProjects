@@ -154,7 +154,7 @@ bool House::isValid()
 			return false;
 		}
 	}
-	if (kitchenCount > MAX_KITCHENS || bathroomCount > MAX_BATHROOMS || livingroomCount > MAX_LIVINGROOMS || bedroomCount > MAX_BEDROOMS)
+	if (kitchenCount < MIN_KITCHENS || kitchenCount > MAX_KITCHENS || bathroomCount < MIN_BATHROOMS || bathroomCount > MAX_BATHROOMS || livingroomCount < MIN_LIVINGROOMS || livingroomCount > MAX_LIVINGROOMS || bedroomCount < MIN_BEDROOMS || bedroomCount > MAX_BEDROOMS)
 	{
 		return false;
 	}
