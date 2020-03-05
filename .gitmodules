@@ -1,0 +1,3 @@
+[submodule "arduinoGPS"]
+	path = cs-180/arduinoGPS
+	url = https://github.com/liamcannon/arduinoGPS.git
