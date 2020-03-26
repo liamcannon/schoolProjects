@@ -4,20 +4,20 @@
 
 using namespace std;
 
-class linkedList {
+class LinkedList {
     Node* head;
     Node* last;
 
     int size;
 
     public:
-        linkedList();
-        ~linkedList();
+        LinkedList();
+        ~LinkedList();
 
         void addNode(Node* node);
         void addBook(string book);
         void removeLast();
-        void displayList(bool temp);
+        void displayList();
         void deleteList();
         int getSize();
         void operator+(Node* node);

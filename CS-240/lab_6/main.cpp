@@ -1,41 +1,50 @@
 #include <iostream>
+#include "linkedList.h"
 
 using namespace std;
 
-struct ListNode {
-    ListNode() {
-        data = "";
-        next = nullptr;
+int displayMenu() {
+    int response = 0;
+    while(response <= 0 || response > 5) {
+        cout << "What would you like to do" << endl;
+        cout << "1.) Display the list of Books" << endl;
+        cout << "2.) Enter a new Book" << endl;
+        cout << "3.) Remove last Book " << endl;
+        cout << "4.) Clear the list" << endl;
+        cout << "5.) Quit" << endl;
+        cin >> response; 
     }
-    ListNode(string num, ListNode* p = NULL) {
-        data = num;
-        next = p;
-    }
-    string data;
-    ListNode* next;
-};
-
+    return response;
+}
 int main() {
-    ListNode* p;
-    string book = "Book";
-    p = new ListNode(book);
-    
-    int count = 0; 
-
-    while(p->next != NULL) {
-        p = p->next;
-        p->next = new ListNode(book);
-    }
-    while(p != NULL) {
-        count++;
-        cout << p->data << endl;
-        p = p->next;
-    }
-    cout << "Size: " << count << endl;
-
-    delete (p->next);
-
-    while(p != NULL) {
-         = p->next;
-    }
+    LinkedList list;
+    int option;
+    do {
+        option = displayMenu();
+        string temp = "";
+        switch(option) {
+            case 1:
+                list.displayList();
+                break;
+            case 2:
+                cout << "Enter Book name: ";
+                cin >> temp;
+                list + temp; // operator overload add
+                list.displayList();
+                break;
+            case 3:
+                cout << "You are removing the last book" << endl;
+                list.removeLast();
+                list.displayList();
+                break;
+            case 4:
+                cout << "\nYou've cleared the list\n" << endl;
+                list.deleteList();
+                break;
+            case 5:
+                break;
+            default: 
+                break;
+        }
+    }while(option != 5);
 }

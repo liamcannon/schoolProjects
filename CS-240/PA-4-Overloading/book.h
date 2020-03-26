@@ -30,6 +30,7 @@ of this assignment may, for the purpose of assessing this assignment :
 #include <sstream>
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -56,7 +57,7 @@ public:
 	float getWeightLbs();					   //calculate and return the weight of the book in lbs
 	string getTypeName();					   //return the string which correlates with the book type
 	void addReviews(const string &reviewFile); //reads the passed in reviews file and adds review data to the book
-	float calculateAverageReview();			   //calculate the average of the reviews
+	double calculateAverageReview();			   //calculate the average of the reviews
 	//accessors
 	int getMostFrequentReview(); //get the review (number of stars) with the highest count
 	string getName() { return bName; };

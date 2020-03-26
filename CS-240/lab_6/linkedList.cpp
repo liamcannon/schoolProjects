@@ -2,17 +2,17 @@
 
 using namespace std;
 
-linkedList::linkedList() {
+LinkedList::LinkedList() {
     head = nullptr;
     last = nullptr;
     size = 0;
 }
-linkedList::~linkedList() {
+LinkedList::~LinkedList() {
     if(head != nullptr) {
         deleteList();
     }
 }
-void linkedList::addNode(Node* node) {
+void LinkedList::addNode(Node* node) {
     if(node == nullptr) {
         return;
     }
@@ -27,7 +27,7 @@ void linkedList::addNode(Node* node) {
     last = node;
 }
 
-void linkedList::addBook(string book) {
+void LinkedList::addBook(string book) {
     size++;
     if(head == nullptr) {
         head = new Node(book);
@@ -37,7 +37,7 @@ void linkedList::addBook(string book) {
     last->next = new Node(book, last);
     last = last->next;
 }
-void linkedList::removeLast() {
+void LinkedList::removeLast() {
     string temp = last->book;
     if(size == 0) {
         delete last;
@@ -50,37 +50,29 @@ void linkedList::removeLast() {
     }
     size--;
 }
-void linkedList::displayList(bool temp) {
+void LinkedList::displayList() {
     Node* cursor = head;
-    if(!temp) {
-            cout << "List Size: " << size << endl;
-            
-        }
     cout << endl << "List of Books: " << endl;;
-    
     for(int i = 0; cursor != nullptr; i++) {
-        if(temp) {
-            cout << i + 1 << ".) ";
-        }
+        cout << i + 1 << ".) ";
         cout << cursor->book << endl;
         cursor = cursor->next;
     }
     cout << endl;
 }
-void linkedList::deleteList() {
+void LinkedList::deleteList() {
     last = last->parent;
     while(last != nullptr) {
         delete last->next;
         last = last->parent;
     }
 }
-int linkedList::getSize() {
+int LinkedList::getSize() {
     return size;
 }
-
-void linkedList::operator+(Node* node) {
+void LinkedList::operator+(Node* node) {
     addNode(node);
 }
-void linkedList::operator+(string book){
+void LinkedList::operator+(string book){
     addBook(book);
 }

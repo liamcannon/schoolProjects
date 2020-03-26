@@ -18,13 +18,15 @@ of this assignment may, for the purpose of assessing this assignment :
 
 #include "book.h"
 
+const int SIZE = 5;
+
 Book::Book()
 {
 	bName = "";
 	bType = Type(-1);
 	bPages = 0;
 	bOunces = 0;
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < SIZE; i++)
 	{
 		bReviews[i] = 0;
 	}
@@ -36,7 +38,7 @@ Book::Book(const string &name, Type type, int pages, float ounces, const string 
 	bType = type;
 	bPages = pages;
 	bOunces = ounces;
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < SIZE; i++)
 	{
 		bReviews[i] = 0;
 	}
@@ -46,10 +48,9 @@ Book::Book(const string &name, Type type, int pages, float ounces, const string 
 string Book::formatReportLine()
 {
 	stringstream ss;
-	ss << bName << " | Type: " << this->getTypeName() << "  Pages: " << this->bPages
-	 << "  Weight(lbs): " << this->getWeightLbs() <<
-	  "  Average Stars: " << this->calculateAverageReview() 
-	  << "  Most Frequent Review: " << this->getMostFrequentReview();
+	ss << bName << " | Type: " << this->getTypeName() << "  Pages: " << this->bPages << "  Weight(lbs): " 
+	<< this->getWeightLbs() << "  Average Stars: " 
+	<< this->calculateAverageReview() << "  Most Frequent Review: " << this->getMostFrequentReview();
 	return ss.str();
 }
 
@@ -66,35 +67,61 @@ string Book::getTypeName()
 void Book::addReviews(const string &reviewFile)
 {
 	ifstream input(reviewFile);
+	int reviews[SIZE];
 
-	for (int i = 0; i < 5 && !input.eof(); i++)
+	for (int i = 0; i < SIZE && !input.eof(); i++)
 	{
 		input >> bReviews[i];
 	}
 }
 
-float Book::calculateAverageReview()
+double Book::calculateAverageReview()
 {
-	int amount = 0;
-	float total = 0;
-	for (int i = 0; i < 5; i++)
-	{
-		total += bReviews[i];
-		amount += bReviews[i] * (i + 1);
-	}
-	return amount / total;
+	double total = 0;
+	double amount = 0;
+
+	  for (int i = 0; i < SIZE;i++) {
+        total += bReviews[i] * (SIZE-i);
+        amount += bReviews[i];
+    }
+	total /= amount;
+
+	return total;
 }
 
 int Book::getMostFrequentReview()
 {
-	int frequent = 0;
-
-	for (int i = 0; i < 5; i++)
-	{
-		if (bReviews[i] > bReviews[frequent])
-			frequent = i;
-	}
-	return frequent;
+	int mostFrequent = 0;
+	int reviews = 0;
+    getReviews(bReviews, SIZE);
+    for (int i = 0; i < SIZE; i++) {
+        if (bReviews[i] > reviews) {
+            reviews = bReviews[i];
+			switch(i) {
+				case 0:
+					mostFrequent = 5;
+					break;
+				case 1:
+					mostFrequent = 4;
+					break;
+				case 2:
+					mostFrequent = 3;
+					break;
+				case 3:
+					mostFrequent = 2;
+					break;
+				case 4:
+					mostFrequent = 1;
+					break;
+				case 5:
+					mostFrequent = 0;
+					break;
+				default:
+					break;
+			}
+        }
+    }
+    return mostFrequent;
 }
 
 void Book::getReviews(int reviewsArray[], int size)
@@ -111,7 +138,7 @@ Book Book::operator=(const Book &book)
 	this->bType = book.bType;
 	this->bPages = book.bPages;
 	this->bOunces = book.bOunces;
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < SIZE; i++)
 	{
 		this->bReviews[i] = book.bReviews[i];
 	}
