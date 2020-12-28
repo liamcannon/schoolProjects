@@ -1,0 +1,11 @@
+1.) In this case the bubble sort I wrote goes over the whole array everytime it iterates
+    if I had made it not do that each time it would be much faster but still slower than 
+    selection sort because bubble sort uses significaly more swaps
+
+2.) Insertion sort uses less comparisons than selection sort. Selection sort will always take the same amount of time
+    while the longest Insertion sort can take is the selection sort time. 
+
+3.) It needs to overload the < and > operators because that is the operator I used in comparisons
+
+4.) std::sort uses something called introsort which itilizes 3 differnet sorting algorithms Quicksort, heapsort, and insertion sort.
+    I believe it also has a constant runtime.

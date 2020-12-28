@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "__config": "cpp",
+        "type_traits": "cpp",
+        "array": "cpp",
+        "*.tcc": "cpp",
+        "regex": "cpp",
+        "queue": "cpp",
+        "stack": "cpp"
+    }
+}

@@ -1,0 +1,27 @@
+Please write your answers in a file called "answers.txt" with your names
+at the top in this repository. Please number each answer.
+
+1. List 3 examples of a real world queue.
+
+    Music Playlist
+    Youtube Video queue
+    waiting line
+
+2. List 3 examples of a real world stack.
+
+    stack of plates
+    pages in a mobile app
+    a really unfair waiting line(the line at IDX)
+    putting groceries in the car and taking them out
+
+
+3. If a piece of software passes all of its unit tests does it necessarily work correctly? Why or why not?
+
+    No, because each unit could work but the program as a whole could fail meaning the units arn't compatabile with eachother
+
+    Please reference reddit link 
+    https://www.reddit.com/r/programmerhumor/comments/8wllmn
+
+4. Why is a linked list better than a fixed-size array for implementing stacks and queues?
+
+    Linked lists are better because of its ability to resize and we ever have to access the first or last element.
